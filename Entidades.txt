@@ -1,0 +1,70 @@
+Paciente
+	Atributos
+		Nombre
+		apellido Paterno
+		apellido Casada
+		Tipo Doc (PK)
+		N Doc (PK)
+		Direccion
+		Telefono
+		Fecha ultimo Movimiento
+		N Historia Clinica
+		Condicion IVA
+	Tiene o no turnos
+	Se relaciona con una entidad financiadora y un plan. La relación indica el tipo de beneficiario (titular o carga), N° afiliado, condición Paciente.
+
+Turno
+	Atributos
+		Fecha
+		hora
+		Tipo
+		Sobrecupo
+		Lugar
+		Tipo solicitud (telefónica, etcétera)
+		Por demanda espontanea (ver)
+		Sobrecupo
+		Procedimiento Medico
+	Se relaciona con profesional y especialidad
+	Se relaciona con paciente
+	Se relaciona con valorizacion
+
+*De turno hereda turno eliminado
+
+Turno Eliminado
+	Atributos
+		Causa
+
+Profesional
+	Atributos
+		N Matricula
+		Nombre
+		Apellido
+		Direccion
+		Telefono
+
+Especialidad
+	Atributos
+		Id
+		Nombre
+
+
+Entidad Financiadora
+	Atributos
+		Id
+		Tipo (Privado / Publico)
+		Nombre
+
+Plan
+	Atributos
+		Ent Financiadora
+		Nombre
+Valorizacion
+	Atributos
+		Copago
+		Autorización Pendiente
+		Bono Pendiente (Dependen del procedimiento médico y el plan)
+		Se relaciona con un turno y un plan (debido a que el paciente elige con que plan se atiende y de eso depende la valorización)
+
+Pago (Entidad tentativa)
+	Estado
+	Se relaciona con valorización
